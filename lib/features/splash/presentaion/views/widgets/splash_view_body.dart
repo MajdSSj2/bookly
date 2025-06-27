@@ -1,8 +1,9 @@
 import 'package:bookly/constants.dart';
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/assets_data.dart';
 import 'package:bookly/features/home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -26,11 +27,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void pageTransition() {
     Future.delayed(Duration(seconds: 3), () {
-      Get.off(
-        () => HomeView(),
-        transition: Transition.fadeIn,
-        duration: kTransitionDuration,
-      );
+      if (!mounted) return;
+      GoRouter.of(context).push(AppRouter.kHomeView);
     });
   }
 

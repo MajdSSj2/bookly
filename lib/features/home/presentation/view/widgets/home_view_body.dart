@@ -1,9 +1,10 @@
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/view/widgets/best_seller_listview.dart';
-import 'package:bookly/features/home/presentation/view/widgets/best_seller_listview_builder.dart';
 import 'package:bookly/features/home/presentation/view/widgets/custom_appbar.dart';
 import 'package:bookly/features/home/presentation/view/widgets/featured_listview.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -34,7 +35,12 @@ class HomeViewBody extends StatelessWidget {
           delegate: SliverChildBuilderDelegate((context, index) {
             return Padding(
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-              child: BestSellerListViewItem(),
+              child: GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kBookDetails);
+                },
+                child: BestSellerListViewItem(),
+              ),
             );
           }, childCount: 10),
         ),
