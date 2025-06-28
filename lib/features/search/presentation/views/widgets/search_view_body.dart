@@ -1,5 +1,5 @@
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/presentation/view/widgets/best_seller_listview.dart';
+import 'package:bookly/features/search/presentation/views/widgets/search_result_listview.dart';
 import 'package:bookly/features/search/presentation/views/widgets/search_textfield.dart';
 import 'package:flutter/material.dart';
 
@@ -31,20 +31,6 @@ class SearchViewBody extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class SearchResultListview extends StatelessWidget {
-  const SearchResultListview({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    debugPrint('cccccccccccccccc.....xxccx');
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return BestSellerListViewItem();
-      },
     );
   }
 }
